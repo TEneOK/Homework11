@@ -5,36 +5,34 @@ public class Homework {
         int currentYear = LocalDate.now().getYear();
         int clientDeviceYear = 2015;
         int clientOS = 1;
-        int deliveryDistance = 20;
         years(currentYear);
         version(clientDeviceYear, clientOS);
-        delivery(deliveryDistance);
+        deliverTheCard();
+        System.out.println(deliverTheCard());
     }
 
     public static void years(int currentYear) {
-        if (currentYear > 1584 && (currentYear % 4 == 0 && currentYear % 100 == 0 || currentYear % 400 == 0)) {
+        if (currentYear > 1584 && (currentYear % 4 == 0 && currentYear % 100 != 0 || currentYear % 400 == 0)) {
             System.out.println(currentYear + " год является високосным");
-        } else
+        } else {
             System.out.println(currentYear + " год не является високосным");
-        return;
+        }
     }
 
     public static void version(int clientDeviceYear,
-    int clientOS) {
+                               int clientOS) {
         if (clientDeviceYear >= 2015 && clientOS == 0) {
             System.out.println("Установите обычную версию приложения для IOS");
         } else if (clientDeviceYear < 2015 && clientOS == 0) {
             System.out.println("Установите облегченную версию приложения для IOS по ссылке");
-        }
-
-        else if (clientDeviceYear >= 2015 && clientOS == 1) {
+        } else if (clientDeviceYear >= 2015 && clientOS == 1) {
             System.out.println("Установите обычную версию приложения для Android");
         } else if (clientDeviceYear < 2015 && clientOS == 1)
             System.out.println("Установите облегченную версию приложения для Android по ссылке");
-        return;
     }
 
-    public static void delivery(int deliveryDistance) {
+    public static int deliverTheCard() {
+        int deliveryDistance = 95;
         int day = 20;
         int twoDay = 60;
         int threeDay = 100;
@@ -46,7 +44,6 @@ public class Homework {
         } else if (deliveryDistance > twoDay) {
             deliveryDays++;
         }
-        System.out.println("Потребуется дней: " + deliveryDays);
-        return;
+        return deliveryDays;
     }
 }
