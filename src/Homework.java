@@ -5,10 +5,15 @@ public class Homework {
         int currentYear = LocalDate.now().getYear();
         int clientDeviceYear = 2015;
         int clientOS = 1;
+        int deliveryDistance = 95;
+        int day = 20;
+        int twoDay = 60;
+        int threeDay = 100;
+        int deliveryDays = 1;
         years(currentYear);
         version(clientDeviceYear, clientOS);
-        deliverTheCard();
-        System.out.println(deliverTheCard());
+        deliverTheCard(deliveryDistance, day, twoDay, threeDay, deliveryDays);
+        System.out.println(deliverTheCard(deliveryDistance, day, twoDay, threeDay, deliveryDays));
     }
 
     public static void years(int currentYear) {
@@ -31,14 +36,9 @@ public class Homework {
             System.out.println("Установите облегченную версию приложения для Android по ссылке");
     }
 
-    public static int deliverTheCard() {
-        int deliveryDistance = 95;
-        int day = 20;
-        int twoDay = 60;
-        int threeDay = 100;
-        int deliveryDays = 1;
+    public static int deliverTheCard(int deliveryDistance, int day, int twoDay, int threeDay, int deliveryDays) {
         if (deliveryDistance > threeDay) {
-            System.out.println("Доставки нет.");
+            deliveryDays--;
         } else if (deliveryDistance > day) {
             deliveryDays++;
         } else if (deliveryDistance > twoDay) {
